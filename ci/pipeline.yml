@@ -8,7 +8,7 @@ resources:
     private_key: {{github-private-key}}
 
 - name: version
-  type: semver
+    type: semver
   source:
     bucket: {{aws-bucket}}
     key: pal-tracker/current-version
