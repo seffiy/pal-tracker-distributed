@@ -27,6 +27,7 @@ public class ApplicationServer {
             .inheritIO();
 
         processBuilder.environment().put("SERVER_PORT", port);
+        processBuilder.environment().put("SPRING_ZIPKIN_ENABLED", "false");
         env.forEach((key, value) -> processBuilder.environment().put(key, value));
 
         serverProcess = processBuilder.start();
@@ -42,6 +43,7 @@ public class ApplicationServer {
            // .put("REGISTRATION_SERVER_ENDPOINT", "http://localhost:8883")
                 .put("APPLICATION_OAUTH_ENABLED", "false")
                 .put("REGISTRATION_SERVER_RIBBON_LISTOFSERVERS", "http://localhost:8883")
+                .put("SPRING_ZIPKIN_ENABLED", "false")
             .build()
         );
     }
